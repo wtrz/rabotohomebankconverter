@@ -5,7 +5,7 @@ By default Rabobank's export file 'Transactions.txt' cannot be imported into Hom
 
 Prerequisites: 
 
-1. Python (2.7) to be installed (https://www.python.org/downloads/)
+1. Python 3 to be installed (https://www.python.org/downloads/)
 2. Transactions.txt & Rabo_to_Homebank_converter.py to be placed in the same directory. 
 
 Usage:
