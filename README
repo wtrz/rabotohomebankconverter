@@ -1,0 +1,12 @@
+Personal finances | Python script | Goal to convert Rabobank 'Transactions.txt' into Homebank csv format
+
+By default Rabobank's export file 'Transactions.txt' cannot be imported into Homebank personal finance software (http://homebank.free.fr/). This python script transcodes the Rabobank file for Homebank to accept.
+
+Prerequisites:
+
+Python (2.7) to be installed (https://www.python.org/downloads/)
+Transactions.txt & Rabo_to_Homebank_converter.py to be placed in the same directory.
+Usage:
+
+Python Rabo_to_Homebank_converter.py
+Import the generated .csv file into Homebank.
