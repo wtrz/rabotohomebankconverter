@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#Python 2.7.9 script 2015-11-18 V1
+#Python 3.5 script 20161101 V2
 #Author: Wouter Dunnes
 #Purpose: Convert Rabobank's  "transactions.txt" into Homebank csv format
 
@@ -68,16 +68,16 @@ for idx, row in enumerate(reader):
         
     #plist is the list to be added to ofile
     plist = [fulldate,category,'',description,memo,signedamount,'',importtext]
-    print count,plist
+    print(count,plist)
     writer.writerow(plist)
     
 #close + summary
 ifile.close()
 ofile.close()
 
-print """
+print("""
 \n
 Transactions proccessed: {}
-Output file: {} """.format(count,ofilename)
+Output file: {} """.format(count,ofilename))
 
 
