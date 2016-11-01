@@ -10,13 +10,23 @@ import time
 #variables
 current_date = time.strftime("%Y%m%d")
 ifilename = "transactions.txt" #input file name. 
-ifile = open(ifilename,"rb")
 ofilename = "transactions_" + current_date + ".csv" #output file name
-ofile = open(ofilename,"w+")
-reader = csv.reader(ifile,delimiter=",")
-writer = csv.writer(ofile,delimiter=";")
 count = 0 #counter for number of processed transactions
 keyword1 = 'Betaalautomaat' #identifier for debitcard transactions. These will be categorized accordingly. 
+
+
+#Filehandle
+
+try:
+    ifile = open(ifilename,"r") #input file handle
+    ofile = open(ofilename,"w+") #output file handle
+    reader = csv.reader(ifile,delimiter=",")
+    writer = csv.writer(ofile,delimiter=";")
+    
+except:
+    print("--------Filehandle failed-------------")
+        
+
 
 #iterate over each row
 for idx, row in enumerate(reader):
@@ -28,11 +38,11 @@ for idx, row in enumerate(reader):
 
 
     #Date
-    date = row[2]
-    year = date[2:4]
-    month = date[4:6]
-    day = date[6:8]
-    fulldate = month + "-" + day + "-" + year 
+    input_date = row[2]
+    #year = date[2:4]
+    #month = date[4:6]
+    #day = date[6:8]
+    output_date = input_date[6:8] + "-" + input_date[4:6] + "-" + input_date[2:4]
     
     #Category - 6 = debitcard; 4 = transfer. 
     if keyword1 in row[11]:
@@ -67,7 +77,7 @@ for idx, row in enumerate(reader):
     importtext = "import" + current_date
         
     #plist is the list to be added to ofile
-    plist = [fulldate,category,'',description,memo,signedamount,'',importtext]
+    plist = [output_date,category,'',description,memo,signedamount,'',importtext]
     print(count,plist)
     writer.writerow(plist)
     
